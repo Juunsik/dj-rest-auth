@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters
 from rest_framework import status
-from rest_framework.generics import GenericAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import GenericAPIView, RetrieveUpdateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -221,7 +221,7 @@ class LogoutView(APIView):
         return response
 
 
-class UserDetailsView(RetrieveUpdateAPIView):
+class UserDetailsView(RetrieveUpdateDestroyAPIView):
     """
     Reads and updates UserModel fields
     Accepts GET, PUT, PATCH methods.
